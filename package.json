@@ -1,0 +1,14 @@
+{
+  "name": "php_api",
+  "version": "1.0.0",
+  "description": "Minha primeira API escrita em PHP",
+  "main": "null",
+  "scripts": {
+    "apache": "docker run -d --link banco:mysql -p 80:80 -v $PWD:/var/www/html --name my-lamp-container mateusgarcia/webserver:latest",
+    "mysql": "docker exec -i -t banco /bin/bash",
+    "start": "npm run banco && npm run apache",
+    "stop:all": "docker stop $(docker ps -q -a) && docker rm $(docker ps -q -a)"
+  },
+  "author": "Mateus Garcia",
+  "license": "ISC"
+}
